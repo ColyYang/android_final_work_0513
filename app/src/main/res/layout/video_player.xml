@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    >
+
+    <TextView
+        android:id="@+id/video_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="TextView"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        />
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/video_description"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="name"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+
+        />
+
+    <ImageView
+        android:id="@+id/video_heart"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:src="@drawable/heart_noclick"
+        android:layout_marginStart="5dp"
+        />
+
+    <TextView
+        android:id="@+id/video_likecount"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="name"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
+</LinearLayout>

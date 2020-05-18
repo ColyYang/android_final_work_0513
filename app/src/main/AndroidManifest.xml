@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android_final_work_0513">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon_douyin"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+
+        android:usesCleartextTraffic="true"
+        >
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.android_final_work_0513"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".RegisterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity
+            android:name=".uploadFragmentActivity"
+            android:label="uploadFragmentActivity" />
+        <activity
+            android:name=".uploadTakeVideoActivity"
+            android:label="RecordVideoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".uploadTakePictureActivity"
+            android:label="TakePictureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".meFragmentActivity"
+            android:label="meFragmentActivity" />
+        <activity android:name=".VideoPlayerActivity"
+            android:label="VideoPlayerActivity">
+
+
+        </activity>
+
+
+    </application>
+
+</manifest>
