@@ -77,8 +77,27 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
         meBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent meI = new Intent(MainActivity.this, meFragmentActivity.class);
-                startActivity(meI);
+                Intent meIntent = new Intent(MainActivity.this, meFragmentActivity.class);
+
+                Bundle extras = getIntent().getExtras();
+                if (extras != null) {
+                    Bundle bundle = extras.getBundle("user");
+                    if (bundle != null) {
+
+                        String nameMain = bundle.getString("userName");
+                        String accountMain = bundle.getString("userAccount");
+
+                        Bundle bundleNew = new Bundle();
+
+                        bundleNew.putString("userName", nameMain);
+                        bundleNew.putString("userAccount", accountMain);
+                        meIntent.putExtra("user", bundle);
+
+                    }
+                }
+
+
+                startActivity(meIntent);
             }
         });
 
@@ -140,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
 
         intent.putExtra("user", bundle);
         startActivity(intent);
-
 
 
     }

@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         EditText eName = findViewById(R.id.username);
+        EditText eAccount = findViewById(R.id.useraccount);
         EditText ePassword = findViewById(R.id.password);
         EditText eRepassword = findViewById(R.id.repassword);
         Button register = findViewById(R.id.register);
@@ -34,9 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = eName.getText().toString();
+                String account = eAccount.getText().toString();
                 String password = ePassword.getText().toString();
                 String repassword = eRepassword.getText().toString();
-                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
+
+
+
+                if (TextUtils.isEmpty(name) || TextUtils.isEmpty(account) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
                     Toast.makeText(RegisterActivity.this, "参数不合法", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -50,7 +56,14 @@ public class RegisterActivity extends AppCompatActivity {
                 meBT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+
                         Intent meI = new Intent(RegisterActivity.this, MainActivity.class);
+                        Bundle bundle = new Bundle();
+
+                        bundle.putString("userName", name);
+                        bundle.putString("userAccount", account);
+                        meI.putExtra("user", bundle);
                         startActivity(meI);
                     }
                 });

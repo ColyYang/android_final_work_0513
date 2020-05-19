@@ -3,4 +3,57 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        >
+        <ImageView
+            android:id="@+id/userIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/heart_noclick"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <TextView
+            android:id="@+id/setUserName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="name"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:textSize="30dp"
+            />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/setUserAccount"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="name"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:textSize="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/setPic"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Designed by YangRui."
+        android:layout_marginStart="10dp"
+        android:textSize="25dp"
+
+        android:layout_marginTop="30dp"
+        />
+
 </LinearLayout>

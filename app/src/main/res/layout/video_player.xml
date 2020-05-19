@@ -8,18 +8,21 @@
     <TextView
         android:id="@+id/video_nickname"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="30dp"
         android:text="TextView"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+
+        android:textSize="20dp"
         />
 
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+
         />
 
     <TextView
