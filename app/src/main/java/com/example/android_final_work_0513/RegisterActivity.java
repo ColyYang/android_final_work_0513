@@ -24,15 +24,10 @@ public class RegisterActivity extends AppCompatActivity {
         EditText eAccount = findViewById(R.id.useraccount);
         EditText ePassword = findViewById(R.id.password);
         EditText eRepassword = findViewById(R.id.repassword);
-        Button register = findViewById(R.id.register);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://wanandroid.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        Button loginBT = findViewById(R.id.login);
 
-        ApiService apiService = retrofit.create(ApiService.class);
-
-        register.setOnClickListener(new View.OnClickListener() {
+        //TODO 用户点击登录按钮进行登录信息处理
+        loginBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = eName.getText().toString();
@@ -40,24 +35,22 @@ public class RegisterActivity extends AppCompatActivity {
                 String password = ePassword.getText().toString();
                 String repassword = eRepassword.getText().toString();
 
-
-
+                //用户信息非空
                 if (TextUtils.isEmpty(name) || TextUtils.isEmpty(account) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
                     Toast.makeText(RegisterActivity.this, "参数不合法", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                //密码不相等
                 if (!TextUtils.equals(password, repassword)) {
                     Toast.makeText(RegisterActivity.this, "密码不相等", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-
-                Button meBT = (Button) findViewById(R.id.register);
+                //TODO 登录成功，通过intent传递本次用户登录的信息
+                Button meBT = (Button) findViewById(R.id.login);
                 meBT.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
-
                         Intent meI = new Intent(RegisterActivity.this, MainActivity.class);
                         Bundle bundle = new Bundle();
 
@@ -67,9 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
                         startActivity(meI);
                     }
                 });
-
-
-
 
             }
         });

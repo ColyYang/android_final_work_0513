@@ -22,8 +22,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private final ListItemClickListener mOnClickListener;
 
-
-
     public MyAdapter(ListItemClickListener listener) {
         mOnClickListener = listener;
     }
@@ -43,12 +41,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         View view = inflater.inflate(layoutIdForListItem, viewGroup, false);
         MyViewHolder viewHolder = new MyViewHolder(view);
 
-
-
         return viewHolder;
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -58,10 +52,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        //  private final TextView viewHolderIndex;
-        //  private final TextView listItemNumberView;
         public TextView nickname;
-        public String avatarUrl;
+        //public String avatarUrl;
         public TextView description;
         public TextView lickcount;
 
@@ -70,25 +62,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View v) {
             super(v);
             nickname = v.findViewById(R.id.nickname);
-       //     avatarUrl = v.findViewById(R.id.avatar);
             description = v.findViewById(R.id.description);
             lickcount = v.findViewById(R.id.likecount);
-
             mImageView = v.findViewById(R.id.avatar);
 
-            //   listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
-            //   viewHolderIndex = (TextView) itemView.findViewById(R.id.tv_view_holder_instance);
             itemView.setOnClickListener(this);
-        }
-
-        public void bind(int position) {
-            //   listItemNumberView.setText(String.valueOf(position));
-
-
-//            viewHolderIndex.setText(String.format("ViewHolder index: %s", getAdapterPosition()));
-//            int backgroundColorForViewHolder = ColorUtils.
-//                    getViewHolderBackgroundColorFromInstance(itemView.getContext(), getAdapterPosition() % 10);
-//            itemView.setBackgroundColor(backgroundColorForViewHolder);
         }
 
         @Override
@@ -109,23 +87,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Log.d("adapter", "onBindViewHolder: #" + position);
         //    numberViewHolder.bind(position);
-
         holder.nickname.setText(mDataset.get(position).nickname);
 
         Glide.with(holder.mImageView.getContext())
                 .load(mDataset.get(position).avatar)
                 .into(holder.mImageView);
 
-
-
         holder.description.setText(mDataset.get(position).description);
         holder.lickcount.setText(mDataset.get(position).likecount);
 
-
-
     }
-
-
 
     public interface ListItemClickListener {
         void onListItemClick(String titleindex, String videoUrl, String setName, String setLikeCount, String setDescription);

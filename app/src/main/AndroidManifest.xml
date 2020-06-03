@@ -17,8 +17,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/icon_douyin"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ic_douyin"
+        android:label="douYinYR"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"

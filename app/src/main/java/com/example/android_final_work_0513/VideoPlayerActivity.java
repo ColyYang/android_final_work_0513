@@ -30,7 +30,6 @@ public class VideoPlayerActivity extends AppCompatActivity {
 
         String videoUrl;
 
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             Bundle bundle = extras.getBundle("user");
@@ -42,21 +41,19 @@ public class VideoPlayerActivity extends AppCompatActivity {
                 videoUrl = bundle.getString("videoUrl");
 
                 Uri playVideoUrl = Uri.parse(videoUrl);
-
+                //TODO 播放视频
                 videoView = findViewById(R.id.videoView);
                 mediaController = new MediaController(this);
                 videoView.setVideoURI(playVideoUrl);
                 videoView.setMediaController(mediaController);
                 videoView.start();
 
-
-
             }
         }
 
 
         ImageView heartImage = findViewById(R.id.video_heart);
-
+        //TODO 更新likecount和like图标
         findViewById(R.id.video_heart).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

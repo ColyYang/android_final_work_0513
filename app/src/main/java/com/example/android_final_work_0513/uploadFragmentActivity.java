@@ -16,15 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 */
 
 public class uploadFragmentActivity extends AppCompatActivity {
-
-
-    private static String[] PERMISSION_STORAGE={
-            Manifest.permission.CAMERA,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.RECORD_AUDIO
-    };
-    private static int REQUEST_PERSSION_CODE=1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +28,5 @@ public class uploadFragmentActivity extends AppCompatActivity {
         findViewById(R.id.btn_camera).setOnClickListener(v -> {
             startActivity(new Intent(uploadFragmentActivity.this, uploadTakeVideoActivity.class));
         });
-
-
     }
-
-
 }

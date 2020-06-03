@@ -13,7 +13,7 @@
             android:id="@+id/userIcon"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/heart_noclick"
+            android:src="@drawable/icon_douyin"
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
             />
@@ -53,7 +53,7 @@
         android:layout_marginStart="10dp"
         android:textSize="25dp"
 
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         />
 
 </LinearLayout>

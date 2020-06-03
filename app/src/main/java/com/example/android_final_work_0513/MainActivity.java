@@ -1,20 +1,14 @@
 package com.example.android_final_work_0513;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.DnsResolver;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,37 +25,25 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private MyAdapter mAdapter;
-    private List<ArticleResponse> mArticles;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //TODO 获取API中的数据
-
+        //TODO 设置recyclerview
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
-
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
         // specify an adapter (see also next example)
-        mArticles = new ArrayList<>();
         mAdapter = new MyAdapter(MainActivity.this);
-
         recyclerView.setAdapter(mAdapter);
 
-
         getData();
-
-
 
         //TODO 底部的跳转按钮
         ImageButton uploadBT = (ImageButton) findViewById(R.id.bt_upload);
@@ -83,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
                 if (extras != null) {
                     Bundle bundle = extras.getBundle("user");
                     if (bundle != null) {
-
                         String nameMain = bundle.getString("userName");
                         String accountMain = bundle.getString("userAccount");
 
@@ -92,21 +73,17 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
                         bundleNew.putString("userName", nameMain);
                         bundleNew.putString("userAccount", accountMain);
                         meIntent.putExtra("user", bundle);
-
                     }
                 }
-
-
                 startActivity(meIntent);
             }
         });
 
     }
 
-
+    //TODO 获取API中的数据
     private void getData() {
         //https://beiyou.bytedance.com/api/invoke/video/invoke/video
-        //
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://beiyou.bytedance.com/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -114,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
 
         ApiService apiService = retrofit.create(ApiService.class);
         Call<List<ArticleResponse>> articles = apiService.getArticles();
+        //TODO 解析json数据
         articles.enqueue(new Callback<List<ArticleResponse>>() {
             @Override
             public void onResponse(Call<List<ArticleResponse>> call, Response<List<ArticleResponse>> response) {
@@ -127,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
                         mAdapter.notifyDataSetChanged();
                     }
                 }
-
             }
 
             @Override
@@ -135,14 +112,7 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
                 Log.e("Error",t.getMessage());
             }
         });
-
-
-
-
     }
-
-
-
 
     @Override
     public void onListItemClick(String titleindex, String videoUrl, String setName, String setLikeCount, String setDescription) {
@@ -159,8 +129,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.ListIte
 
         intent.putExtra("user", bundle);
         startActivity(intent);
-
-
     }
 
 
